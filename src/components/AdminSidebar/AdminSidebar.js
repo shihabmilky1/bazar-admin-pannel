@@ -2,17 +2,20 @@ import React from 'react';
 import './AdminSidebar.css'
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { Link } from 'react-router-dom'
-const CheckoutSidebar = () => {
+const AdminSidebar = ({ sidebarOpen }) => {
     return (
-        <div className="checkout-sidebar shadow"
+        <div className="admin-sidebar shadow"
+            style={{
+                transform: sidebarOpen ? 'translateX(0%)' : 'translateX(-100%)', zIndex: sidebarOpen ? '100 !important' : ''
+            }}
         >
-            <div className="checkout-sidebar-header d-flex align-items-center justify-content-between"
+            <div className="admin-sidebar-header d-flex align-items-center justify-content-between"
             >
                 <div className="close-btn">
                     <i class="fal fa-times"></i>
                 </div>
             </div>
-            <div className="checkout-sidebar-main h-100">
+            <div className="admin-sidebar-main h-100">
 
                 <Scrollbars>
                     <ul>
@@ -31,7 +34,7 @@ const CheckoutSidebar = () => {
                     </ul>
                 </Scrollbars>
             </div>
-            <div className="checkout-sidebar-bottom">
+            <div className="admin-sidebar-bottom">
                 <div className="btn logout-btn d-flex align-items-center">
                     <i className="fal fa-sign-out-alt logout-icon"></i>
                     <p className="my-0">Logout</p>
@@ -41,4 +44,4 @@ const CheckoutSidebar = () => {
     );
 };
 
-export default CheckoutSidebar;
+export default AdminSidebar;
